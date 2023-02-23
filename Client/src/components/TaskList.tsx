@@ -13,11 +13,11 @@ export default function TaskList() {
     };
     fetchTasks();
   }, []);
-  
+
 
   return (
     <div className="task-list">
-      <h1>Tasks</h1>
+      <h2>To Do</h2>
       {tasks.map((task: Task) => {
         return <TaskItem task={task} />;
       })}
