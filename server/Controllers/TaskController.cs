@@ -10,7 +10,7 @@ using aspnetcoreapp.Models;
 namespace aspnetcoreapp.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/api/[controller]")]
 public class TaskController : ControllerBase
 {
     private readonly TaskContext _context;
