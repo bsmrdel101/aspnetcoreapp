@@ -88,7 +88,7 @@ public class TaskController : ControllerBase
         _context.TaskItems.Add(taskItem);
         await _context.SaveChangesAsync();
 
-        // return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
+        return CreatedAtAction(nameof(GetTaskItem), new { id = taskItem.Id }, taskItem);
     }
 
     // DELETE: api/Task/{id}
