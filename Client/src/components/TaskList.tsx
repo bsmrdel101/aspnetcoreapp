@@ -19,7 +19,7 @@ export default function TaskList() {
     <div className="task-list">
       <h2>To Do</h2>
       {tasks.map((task: Task) => {
-        return <TaskItem task={task} />;
+        return <TaskItem key={task.id} task={task} />;
       })}
     </div>
   );
