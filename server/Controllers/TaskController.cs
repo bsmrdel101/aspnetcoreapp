@@ -39,7 +39,7 @@ public class TaskController : ControllerBase
         {
             return NotFound();
         }
-        TaskItem taskItem = await _context.TaskItems.FindAsync(id);
+        TaskItem? taskItem = await _context.TaskItems.FindAsync(id);
 
         if (taskItem == null)
         {
