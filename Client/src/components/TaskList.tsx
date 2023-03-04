@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { getTasks } from '../controllers/taskController';
+import { useAppSelector } from '../redux/hooks';
+import { tasksList } from '../redux/reducers/taskSlice';
 import { Task } from '../scripts/types';
 import TaskItem from './TaskItem';
 
 
 export default function TaskList() {
+  const taskSelector: Task[] = useAppSelector(tasksList) as any;
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
@@ -12,7 +15,7 @@ export default function TaskList() {
       setTasks(await getTasks() as any);
     };
     fetchTasks();
-  }, []);
+  }, [taskSelector]);
 
 
   return (

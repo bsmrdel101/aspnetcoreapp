@@ -1,20 +1,31 @@
 import React, { FormEvent, useState } from 'react';
 import { addTask, getTasks } from '../controllers/taskController';
+import { useAppDispatch } from '../redux/hooks';
+import { setTasks } from '../redux/reducers/taskSlice';
 import { Task } from '../scripts/types';
 
 
 export default function AddTaskForm() {
   const [taskName, setTaskName] = useState('');
+  const dispatch = useAppDispatch();
 
   const handleSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
+    // Create new task object
     const newTask: Task = {
       id: (await getTasks()).length + 1,
       name: taskName,
       isComplete: false
     };
     await addTask(newTask);
-    window.location.reload();
+    // Set task reducer
+    dispatch(
+      setTasks({
+        id: newTask.id,
+        name: newTask.name,
+        isComplete: false
+      })
+    );
   };
 
 
