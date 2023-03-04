@@ -17,3 +17,4 @@ Both the client and server are in this repo.
 - ASP.NET Core
 - React
 - Typescript
+- Redux
